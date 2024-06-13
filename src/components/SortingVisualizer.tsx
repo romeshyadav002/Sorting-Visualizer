@@ -4,6 +4,7 @@ import generateArray from '../helpers/RandomNoArray/randomNoArray';
 import Button from './Button';
 import javaScriptSort from '../helpers/SortingAlgos/JavaScriptSort/JavaScriptSort';
 import ArrayBars from './ArrayBars';
+import mergeSort from '../helpers/SortingAlgos/MergeSort/MergeSort';
 const SIZE = 70;
 function SortingVisualizer() {
   const [array, setArray] = useState(generateArray(SIZE));
@@ -16,12 +17,17 @@ function SortingVisualizer() {
     console.log({ sortedArray });
     setArray([...sortedArray]);
   };
+  const mgSort = () => {
+    const sortedArray = mergeSort(array);
+    console.log({ sortedArray });
+    setArray([...sortedArray]);
+  };
 
   return (
     <div className="flex p-4 flex-row justify-between items-center w-full h-full">
       <div className="flex flex-col items-start justify-start gap-10">
         <Button text="Reset Array" onPress={resetArray} />
-        <Button text="Merge Sort" onPress={resetArray} />
+        <Button text="Merge Sort" onPress={mgSort} />
         <Button text="Quick Sort" onPress={resetArray} />
         <Button text="Heap Sort" onPress={resetArray} />
         <Button text="Bubble Sort" onPress={resetArray} />
