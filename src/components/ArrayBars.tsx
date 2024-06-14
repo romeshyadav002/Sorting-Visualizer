@@ -4,14 +4,18 @@ interface ButtonProps {
 }
 const ArrayBars: React.FC<ButtonProps> = ({ array }) => {
   return (
-    <div className="space-y-1">
-      {array.map((val, index) => (
-        <div
-          key={index}
-          style={{ width: `${val}px` }}
-          className="bg-purple-400 h-1"
-        ></div>
-      ))}
+    <div className=" flex flex-row space-x-1">
+      {array.map((val, index) => {
+        const customClass = `w-1 bg-gray-300`;
+        return (
+          <div
+            key={index}
+            id={`${index}`}
+            style={{ height: val }}
+            className={customClass}
+          ></div>
+        );
+      })}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import generateRandomNumber from '../RandomNumber/randomNumberGenerator';
 
 const min = 5;
-const max = 1000;
+const max = 600;
 const generateArray = (size: number) => {
   const array: number[] = [];
   for (let i = 0; i < size; i++) {
