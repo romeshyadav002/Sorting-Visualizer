@@ -1,4 +1,4 @@
-import { ANIMATION_SPEED } from '../../../components/SortingVisualizer';
+import { ANIMATION_SPEED } from '../../../Utils/constants';
 
 export const getMergeSortAnim = (array: number[]): any[] => {
   const animations: any[] = [];
@@ -68,7 +68,7 @@ export const mergeAnim = (array: number[]) => {
       const bar2 = document.getElementById(barTwoIdx);
       const barOneStyle = (bar1 as HTMLElement)?.style;
       const barTwoStyle = (bar2 as HTMLElement)?.style;
-      const color = i % 3 === 0 ? 'red' : 'green';
+      const color = i % 3 === 0 ? 'red' : 'turquoise';
       setTimeout(() => {
         barOneStyle.backgroundColor = color;
         barTwoStyle.backgroundColor = color;

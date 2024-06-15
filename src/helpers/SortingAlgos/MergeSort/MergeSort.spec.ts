@@ -1,7 +1,7 @@
 import { describe, test } from 'vitest';
 import generateArray from '../../RandomNoArray/randomNoArray';
 import mergeSort from './MergeSort';
-import { getMergeSortAnim } from './MergeAnim';
+import { getMergeSortAnim, mergeAnim } from './MergeAnim';
 
 describe('mergeSort test', () => {
   test('test mergeSort', async () => {
@@ -12,11 +12,10 @@ describe('mergeSort test', () => {
 });
 
 describe('mergeSortAnim test', () => {
+  const array = generateArray(10);
+  console.log({ array });
   test.only('test mergeSortAnim', async () => {
-    const array = generateArray(10);
-    console.log({ array });
-    const sortedArray = getMergeSortAnim(array);
-    console.log(sortedArray[1]);
-    console.log(sortedArray[0]);
+    const animationsArray = getMergeSortAnim(array);
+    console.log({ animationsArray });
   });
 });

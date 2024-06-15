@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
+import { cn } from '../Utils/classMerge';
 
 interface ButtonProps {
   text: string;
   onPress: () => void;
+  className?: HTMLAttributes<HTMLButtonElement>;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, onPress }) => {
+const Button: React.FC<ButtonProps> = ({ text, onPress, className }) => {
   return (
     <div>
       <button
         onClick={onPress}
-        className="flex bg-pink-600 px-3 py-1 rounded-lg"
+        className={cn('flex bg-pink-600 px-3 py-1 rounded-lg', className)}
       >
         {text}
       </button>
