@@ -61,7 +61,7 @@ export const useAudioPlayer = () => {
 
   const handleTimeChangedD = useMemo(
     () => throttle(handleTimeChanged, 700),
-    [audioRef],
+    [],
   );
 
   useEffect(() => {
@@ -79,7 +79,7 @@ export const useAudioPlayer = () => {
         player.addEventListener('timeupdate', handleTimeChangedD);
       };
     }
-  }, []);
+  }, [handleTimeChangedD]);
 
   return {
     audioRef,
@@ -107,5 +107,7 @@ const AudioPlayer: FC<AudioPlayerProps> = forwardRef(
     );
   },
 );
+
+AudioPlayer.displayName = 'AudioPlayer';
 
 export default AudioPlayer;
