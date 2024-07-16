@@ -5,7 +5,8 @@ import { getMergeSortAnim, mergeAnim } from './MergeAnim';
 
 describe('mergeSort test', () => {
   test('test mergeSort', async () => {
-    const array = generateArray(10);
+    const array = generateArray(5);
+    console.log({ array });
     const sortedArray = mergeSort(array);
     console.log({ sortedArray });
   });

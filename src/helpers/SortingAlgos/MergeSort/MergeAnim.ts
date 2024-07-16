@@ -33,6 +33,15 @@ const doMerge = (
   let k = startIdx;
   let i = startIdx;
   let j = middleIdx + 1;
+  console.log({ i, j, k });
+  console.log({
+    mainArray,
+    startIdx,
+    middleIdx,
+    endIdx,
+    auxiliaryArray,
+    animations,
+  });
   while (i <= middleIdx && j <= endIdx) {
     animations.push([i, j]); // Comparing indices
     animations.push([i, j]); // Revert color change
@@ -44,18 +53,21 @@ const doMerge = (
       mainArray[k++] = auxiliaryArray[j++];
     }
   }
+  console.log('i <= middleIdx && j <= endIdx', { animations });
   while (i <= middleIdx) {
     animations.push([i, i]); // Comparing indices (even though they are the same)
     animations.push([i, i]); // Revert color change
     animations.push([k, auxiliaryArray[i]]); // Overwrite value at index k in mainArray with auxiliaryArray[i]
     mainArray[k++] = auxiliaryArray[i++];
   }
+  console.log('i <= middleIdx', { animations });
   while (j <= endIdx) {
     animations.push([j, j]); // Comparing indices (even though they are the same)
     animations.push([j, j]); // Revert color change
     animations.push([k, auxiliaryArray[j]]); // Overwrite value at index k in mainArray with auxiliaryArray[j]
     mainArray[k++] = auxiliaryArray[j++];
   }
+  console.log('in end of doMerge', { animations });
 };
 
 export const mergeAnim = (array: number[]) => {

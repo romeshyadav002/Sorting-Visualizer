@@ -8,7 +8,8 @@ const mergeSort = (array: number[]): number[] => {
   const secondHalf = array.slice(mid);
   const merge1 = mergeSort(firstHalf);
   const merge2 = mergeSort(secondHalf);
-
+  console.log({ merge1 });
+  console.log({ merge2 });
   return merge(merge1, merge2);
 };
 
@@ -36,7 +37,7 @@ const merge = (left: number[], right: number[]): number[] => {
     result.push(right[j]);
     j++;
   }
-
+  console.log({ result });
   return result;
 };
 
