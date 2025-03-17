@@ -101,7 +101,7 @@ export interface AudioPlayerProps
 const AudioPlayer: FC<AudioPlayerProps> = forwardRef(
   ({ url, ...rest }, ref: Ref<HTMLAudioElement>) => {
     return (
-      <audio controls ref={ref}>
+      <audio controls={true} ref={ref}>
         <source src={url} type="audio/mp3" />
       </audio>
     );

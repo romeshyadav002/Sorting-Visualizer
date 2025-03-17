@@ -11,8 +11,11 @@ const quickSortHelper = (array: number[], left: number, right: number) => {
     return;
   }
   const pivotIndex = Math.floor((left + right) / 2);
+  console.log({ pivotIndex });
   const pivot = array[pivotIndex];
+  console.log({ pivot });
   const index = partition(array, left, right, pivot);
+  console.log({ index });
   quickSortHelper(array, left, index - 1);
   quickSortHelper(array, index, right);
 };
@@ -31,10 +34,13 @@ const partition = (
       right--;
     }
     if (left <= right) {
+      console.log({ left, right });
       swap(left, right, array);
       left++;
       right--;
     }
+    console.log({ array, left, right });
   }
+  console.log({ array });
   return left;
 };

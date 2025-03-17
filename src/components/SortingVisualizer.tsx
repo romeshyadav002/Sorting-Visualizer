@@ -15,6 +15,7 @@ import {
   processQuickAnimations,
   quickSortAnim,
 } from '../helpers/SortingAlgos/QuickSort/QuickAnim';
+import { selectionAnim } from '../helpers/SortingAlgos/SelectionSort/SelectionSortAnim';
 
 function SortingVisualizer() {
   const [array, setArray] = useState<number[]>([]);
@@ -59,6 +60,12 @@ function SortingVisualizer() {
     setTimeout(() => setIsSorting(false), animations.length * ANIMATION_SPEED);
   };
 
+  const handleSelectionSort = () => {
+    setIsSorting(true);
+    const animations = selectionAnim([...array]);
+    setTimeout(() => setIsSorting(false), animations.length * ANIMATION_SPEED);
+  };
+
   return (
     <div className="flex p-4 flex-col justify-between items-center w-full h-full gap-3">
       <div className="flex flex-row items-start justify-start gap-10">
@@ -73,7 +80,11 @@ function SortingVisualizer() {
           onPress={handleQuickSort}
           isSorting={isSorting}
         />
-        <Button text="Heap Sort" onPress={jsSort} isSorting={isSorting} />
+        <Button
+          text="Selection Sort"
+          onPress={handleSelectionSort}
+          isSorting={isSorting}
+        />
         <Button
           text="Bubble Sort"
           onPress={handleBubbleSort}
